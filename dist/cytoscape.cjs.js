@@ -11888,7 +11888,8 @@ elesfn$r.isBundledBezier = cachePrototypeStyleFunction('isBundledBezier', functi
     return false;
   }
 
-  return !this.removed() && this.pstyle('curve-style').value === 'bezier' && this.takesUpSpace();
+  return !this.removed() && this.pstyle('curve-style').value === 'bezier'
+    && this.pstyle('display').value === 'element' && this.width() !== 0 && (this.isNode() ? this.height() !== 0 : true); // fixme
 });
 elesfn$r.bypass = elesfn$r.css = elesfn$r.style;
 elesfn$r.renderedCss = elesfn$r.renderedStyle;
